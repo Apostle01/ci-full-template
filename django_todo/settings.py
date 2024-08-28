@@ -14,11 +14,30 @@ import os
 import dj_database_url
 from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Database configuration
+if 'DATABASE_URL' in os.environ:
+    # Production environment (e.g., on Heroku)
+    DATABASES = {
+        'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+    }
+else:
+    # Development environment (e.g., local development)
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
+
+# Optionally import env.py if it exists
 if os.path.isfile("env.py"):
     import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
