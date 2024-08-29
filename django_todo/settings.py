@@ -49,7 +49,7 @@ SECRET_KEY = 'django-insecure-0!z+9*+9)hnb-2v3mj^va8g5(eubh^v2*gey06s8^ex+-_rjz5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['trewq123-django-todo-app-e3aff5ec868d.herokuapp.com']
 
 # Add the CSRF trusted origins here
 CSRF_TRUSTED_ORIGINS = [
@@ -150,3 +150,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
