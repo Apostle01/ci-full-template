@@ -44,12 +44,12 @@ if os.path.isfile("env.py"):
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0!z+9*+9)hnb-2v3mj^va8g5(eubh^v2*gey06s8^ex+-_rjz5'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-0!z+9*+9)hnb-2v3mj^va8g5(eubh^v2*gey06s8^ex+-_rjz5')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['trewq123-django-todo-app-e3aff5ec868d.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 # Add the CSRF trusted origins here
 CSRF_TRUSTED_ORIGINS = [
@@ -102,11 +102,15 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
+#     }
+# }
+
+DATABASE = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 
