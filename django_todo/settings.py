@@ -49,7 +49,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-0!z+9*+9)hnb-2v3mj^va
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
+ALLOWED_HOSTS = [os.environ.get('trewq123-django-todo-app-e3aff5ec868d.herokuapp.com')]
 
 # Add the CSRF trusted origins here
 CSRF_TRUSTED_ORIGINS = [
@@ -109,9 +109,6 @@ WSGI_APPLICATION = 'django_todo.wsgi.application'
 #     }
 # }
 
-DATABASE = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
 
 
 # Password validation
