@@ -51,6 +51,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = [os.environ.get('trewq123-django-todo-app-e3aff5ec868d.herokuapp.com')]
 
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'trewq123-django-todo-app-e3aff5ec868d.herokuapp.com',
+]
+
+
 # Add the CSRF trusted origins here
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-codeinstitu-cifulltempl-mf1ks9zns2i.ws-eu115.gitpod.io',
